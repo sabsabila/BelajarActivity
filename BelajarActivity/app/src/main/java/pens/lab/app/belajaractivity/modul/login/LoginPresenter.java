@@ -7,8 +7,6 @@ package pens.lab.app.belajaractivity.modul.login;
 public class LoginPresenter implements LoginContract.Presenter{
     private final LoginContract.View view;
 
-
-
     public LoginPresenter(LoginContract.View view) {
         this.view = view;
     }
@@ -20,7 +18,7 @@ public class LoginPresenter implements LoginContract.Presenter{
     public void performLogin(final String email, final String password){
         //proses login
         //if login success call redirect to profile
-        view.redirectToProfile();
+        view.redirectToProfile(email, password);
     }
 
 }

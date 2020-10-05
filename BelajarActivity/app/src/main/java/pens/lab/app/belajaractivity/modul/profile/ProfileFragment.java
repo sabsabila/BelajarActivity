@@ -7,8 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+
+import org.w3c.dom.Text;
+
 import pens.lab.app.belajaractivity.FirstActivity;
 import pens.lab.app.belajaractivity.R;
 import pens.lab.app.belajaractivity.base.BaseFragment;
@@ -20,41 +24,34 @@ import pens.lab.app.belajaractivity.base.BaseFragment;
 
 public class ProfileFragment extends BaseFragment<ProfileActivity, ProfileContract.Presenter> implements ProfileContract.View {
 
-    EditText etEmail;
-    EditText etPassword;
-    Button btnLogin;
+    TextView emailTv;
+    TextView passwordTv;
+    String email;
+    String password;
 
 
-    public ProfileFragment() {
+    public ProfileFragment(String mail, String pwd) {
+        this.email = mail;
+        this.password = pwd;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        fragmentView = inflater.inflate(R.layout.fragment_login, container, false);
+        fragmentView = inflater.inflate(R.layout.fragment_profile, container, false);
         mPresenter = new ProfilePresenter(this);
         mPresenter.start();
 
-        etEmail = fragmentView.findViewById(R.id.et_email);
-        etPassword = fragmentView.findViewById(R.id.et_password);
-        btnLogin = fragmentView.findViewById(R.id.bt_login);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setBtLoginClick();
-            }
-        });
+        emailTv = fragmentView.findViewById(R.id.tv_email);
+        emailTv.setText(email);
+
+        passwordTv = fragmentView.findViewById(R.id.tv_password);
+        passwordTv.setText(password);
 
         setTitle("Profile");
 
         return fragmentView;
-    }
-
-    public void setBtLoginClick(){
-        String email = etEmail.getText().toString();
-        String password = etPassword.getText().toString();
-        mPresenter.performLogin(email,password);
     }
 
     @Override
@@ -62,12 +59,11 @@ public class ProfileFragment extends BaseFragment<ProfileActivity, ProfileContra
         mPresenter = presenter;
     }
 
-    @Override
+    /*@Override
     public void redirectToProfile() {
             Intent intent = new Intent(activity, FirstActivity.class);
             startActivity(intent);
             activity.finish();
-    }
-
+    }*/
 
 }

@@ -23,10 +23,13 @@
     <color name="pantoneDarkTransparent">#8c017787</color>
     <color name="pantone331c">#05c3de</color>
 
-
-    <!--My Color-->
-    <color name="a">#128C7E</color>
-    <color name="b">#075e54</color>
-    <color name="c">#41a290</color>
+    <!--pallete two-->
+    <color name="darkblue">#2B2F70</color>
+    <color name="blueOne">#434AB0</color>
+    <color name="blueTwo">#515AD6</color>
+    <color name="navyBlue">#273170</color>
+    <color name="babyBlue">#9DA9F2</color>
+    <color name="skyBlue">#5C65F0</color>
+    <color name="lightBlue">#606AFC</color>
 
 </resources>

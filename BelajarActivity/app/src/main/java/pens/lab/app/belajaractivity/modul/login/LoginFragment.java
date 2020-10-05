@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import pens.lab.app.belajaractivity.FirstActivity;
 import pens.lab.app.belajaractivity.R;
 import pens.lab.app.belajaractivity.base.BaseFragment;
+import pens.lab.app.belajaractivity.modul.profile.ProfileActivity;
+import pens.lab.app.belajaractivity.modul.profile.ProfileActivity2;
 
 
 /**
@@ -64,11 +66,12 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
     }
 
     @Override
-    public void redirectToProfile() {
-            Intent intent = new Intent(activity, FirstActivity.class);
+    public void redirectToProfile(String email, String password) {
+            Intent intent = new Intent(activity, ProfileActivity2.class);
+            intent.putExtra("email", email);
+            intent.putExtra("password", password);
             startActivity(intent);
             activity.finish();
     }
-
 
 }
