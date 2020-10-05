@@ -8,12 +8,12 @@ import pens.lab.app.belajaractivity.base.BaseFragmentHolderActivity;
 
 public class ProfileActivity extends BaseFragmentHolderActivity {
     ProfileFragment profileFragment;
-    Intent intent = getIntent();
     private final int UPDATE_REQUEST = 2019;
 
     @Override
     protected void initializeFragment() {
         initializeView();
+        Intent intent = getIntent();
         String email = intent.getStringExtra("email");
         String password = intent.getStringExtra("password");
         btBack.setVisibility(View.GONE);
